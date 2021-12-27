@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"> </meta>
+  <!--    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>-->
+  <title>Headers · Bootstrap v5.1</title>
+  <!-- Bootstrap core CSS -->
+  <script th:src="@{/bootstrap/js/bootstrap.js}" type="text/javascript"></script>
+  <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.css}" type="text/css"></link>
+  <script th:src="@{/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+  <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css"></link>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">清水河畔</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">主页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">链接</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              主题分类
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0 input-append">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="float: left;width:240px;"/>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="float: left;width:80px;">Search</button>
+        </form>
+      </div>
+    </nav>
+    <div class="container">
+      <!-- Content here -->
+
+      <th:block th:each="article : ${articles}">
+        <div class="card" style="width: 30rem;">
+          <img class="card-img-top"  th:src="@{/user/img/rand/2.jpg}" alt="Card image cap"></img>
+          <div class="card-body">
+            <h5 class="card-title" th:text="${article.author}"></h5>
+            <p class="card-text" th:text="${article.title}"></p>
+            <p class="card-text" th:text="${article.time}"></p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </th:block>
+
+    </div>
+</body>
+</html>
